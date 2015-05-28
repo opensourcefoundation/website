@@ -1,0 +1,114 @@
+// ---------------------------------------------------------------
+// The Grid - Based on Semantic Grid
+// ---------------------------------------------------------------
+
+@column-width: 95;
+@gutter-width: 0;
+@columns: 12;
+
+@gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+@total-width: 100%;
+@max-width: 1140px;
+@min-width: 960px;
+@narrow-width: 660px;
+
+body, html {
+  width: 100%;
+  height: 100%;
+  .clearfix();
+}
+
+// Grid.
+
+// Let's set our inner width
+.osf-inner
+{
+  max-width: @max-width;
+  margin: 0 auto;
+}
+
+.osf-clearfix
+{
+  .clearfix;
+}
+
+.osf-row(@columns:@columns) {
+  .clearfix;
+  display: block;
+  width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
+  margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
+  // *width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width)-@correction;
+  // *margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1)-@correction;
+
+}
+.osf-column(@x,@columns:@columns) {
+  display: inline;
+  float: left;
+  width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+  margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width);
+  // *width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width)-@correction;
+  // *margin: 0 @total-width*((@gutter-width*.5)/@gridsystem-width)-@correction;
+}
+.osf-push(@offset:1) {
+  margin-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
+.osf-pull(@offset:1) {
+  margin-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}
+
+// Columns
+.osf-column-1{.osf-column(1)}
+.osf-column-2{.osf-column(2)}
+.osf-column-3{.osf-column(3)}
+.osf-column-4{.osf-column(4)}
+.osf-column-5{.osf-column(5)}
+.osf-column-6{.osf-column(6)}
+.osf-column-7{.osf-column(7)}
+.osf-column-8{.osf-column(8)}
+.osf-column-9{.osf-column(9)}
+.osf-column-10{.osf-column(10)}
+.osf-column-11{.osf-column(11)}
+.osf-column-12
+{
+  .osf-column(12);
+  &:not(.osf-column-12--tight){
+    width: 100%;
+    margin: 0;
+  }
+
+}
+
+// Responsive Columns -> Collapse them all at narrow
+.osf-column-1,
+.osf-column-2,
+.osf-column-3,
+.osf-column-4,
+.osf-column-5,
+.osf-column-6,
+.osf-column-7,
+.osf-column-8,
+.osf-column-9,
+.osf-column-10,
+.osf-column-11,
+.osf-column-12
+{
+  @media @narrow {
+    .osf-column(12);
+    width: 100%;
+    margin: 0;
+  }
+}
+
+//Push Wrappers
+.osf-push-1{.osf-push(1)};
+.osf-push-2{.osf-push(2)};
+.osf-push-3{.osf-push(3)};
+.osf-push-4{.osf-push(4)};
+.osf-push-5{.osf-push(5)};
+.osf-push-6{.osf-push(6)};
+.osf-push-7{.osf-push(7)};
+.osf-push-8{.osf-push(8)};
+.osf-push-9{.osf-push(9)};
+.osf-push-10{.osf-push(10)};
+.osf-push-11{.osf-push(11)};
+.osf-push-12{.osf-push(12)};

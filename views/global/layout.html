@@ -1,0 +1,29 @@
+{% include 'pageMacros.html' %}
+
+{# This serves as our base template; it is rendered inside of the 'apos-refreshable' class in outerLayout.html. #}
+{# This is where we declare the main blocks that our layout is composed of, e.g. header, main, footer, etc. #}
+{# Depending on your needs this is where you would create blocks that you can hook into from other templates, #}
+{# e.g. the extraBreadcrumbs block within the breadcrumbs block. #}
+
+{# DO NOT REMOVE THESE COMMENTS. We parse these for outerLayout and refresh operations #}
+<!-- APOS-BODY-CLASS {% block bodyClass %}{% endblock %} -->
+<!-- APOS-TITLE {% block title %}{% endblock %} -->
+<!-- APOS-EXTRA-HEAD {% block extraHead %}{% endblock %} -->
+<!-- APOS-SEO-DESCRIPTION {% block seoDescription %}{% endblock %} -->
+
+{% block header %}
+  <div class="osf-column-12 osf-header" >
+    <div class="osf-inner">
+      <img src="/images/osf-logo.png" class="osf-column-2 osf-logo">
+      <div class="osf-column-2 osf-push-8 osf-ui osf-ui--light">
+        Menu
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block main %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
